@@ -76,18 +76,23 @@ def ej3():
     if operacion == "+":
       resultado = numero_1 + numero_2
       print("El resultado de sumar {} y {} es {}".format(numero_1, numero_2, resultado))
+
     elif operacion == "-":
       resultado = numero_1 - numero_2
       print("El resultado de restar {} y {} es {}".format(numero_1, numero_2, resultado))
+
     elif operacion == "*":
       resultado = numero_1 * numero_2
       print("El resultado de multiplicar {} y {} es {}".format(numero_1, numero_2, resultado))
+
     elif operacion == "/":
       resultado = numero_1 / numero_2
       print("El resultado de dividir {} y {} es {}".format(numero_1, numero_2, resultado))
+
     elif operacion == "**":
       resultado = numero_1 ** numero_2
       print("El resultado de elevar {} y {} es {}".format(numero_1, numero_2, resultado))
+
     else:
       print("Error, el operador ingresado es desconocido, empieze de vuelta")
       ej3()
@@ -148,6 +153,7 @@ def ej4():
     else: 
       print("La operacion introducida es desconocida, por favor empieze de nuevo")
       ej4()
+
              
 def ej5():
     # Ejercicios de práctica con números
@@ -166,11 +172,11 @@ def ej5():
     lista.append(int(input("Introduzca la primera temperatura (°C): ")))
     lista.append(int(input("Introduzca la segunda temperatura (°C): ")))
     lista.append(int(input("Introduzca la tercera temperatura (°C): ")))
+    temperatura_maxima = -999
+    temperatura_minima = 999    
     temperatura_promedio = 0
     for temperatura in lista:
-      temperatura_maxima = -999
-      temperatura_minima = 999
-      temperatura_promedio = temperatura_promedio + temperatura 
+      temperatura_promedio = temperatura_promedio + temperatura
       if temperatura > temperatura_maxima:
         temperatura_maxima = temperatura   
       if temperatura < temperatura_minima:
@@ -179,7 +185,7 @@ def ej5():
           "La temperatura mas alta registra es de: {}\n"
           "La temperatura mas baja registrada es de: {}\n"
           "El promedio de las tres temperaturas es de: {}"
-                                                        .format(temperatura_maxima, temperatura_minima, (temperatura_promedio / 3)))    
+                                                        .format(temperatura_maxima, temperatura_minima, (temperatura_promedio / len(lista))))    
 
 if __name__ == '__main__':
     print("Ejercicios de práctica")
@@ -187,4 +193,4 @@ if __name__ == '__main__':
     #ej2()
     #ej3()
     #ej4()
-    #ej5()
+    ej5()
