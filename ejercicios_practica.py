@@ -25,10 +25,13 @@ def ej1():
     '''
     numero_1 = int(input("Ingrese el primer numero: "))
     numero_2 = int(input("Ingrese el segundo numero: "))
+
     if numero_1 - numero_2 > 0:
       print("El resultado es positivo") 
+
     elif numero_1 - numero_2 < 0:
       print("El resultado es negativo")
+
     else:
       print("El resultado es cero")
 
@@ -46,9 +49,12 @@ def ej2():
   lista.append(int(input("Ingrese el primer numero: ")))
   lista.append(int(input("Ingrese el segundo numero: ")))
   lista.append(int(input("Ingrese el tercer numero: ")))
+
   for numero in lista:
+
     if numero % 2 == 0:
       print(numero, "es par")
+
     else:
       print(numero, "es impar")
 
@@ -73,6 +79,7 @@ def ej3():
     numero_1 = int(input("Ingrese el primer numero a operar: "))
     numero_2 = int(input("Ingrese el segundo numero a operar: "))
     operacion = str(input("Ingrese la operacion a realizar: "))
+
     if operacion == "+":
       resultado = numero_1 + numero_2
       print("El resultado de sumar {} y {} es {}".format(numero_1, numero_2, resultado))
@@ -113,48 +120,50 @@ def ej4():
     e imprimir en pantalla de la mayor a la menor
 
   '''
-    palabra_1 = str(input("Ingrese la primera palabra que comparar: "))
-    palabra_2 = str(input("Ingrese la segunda palabra que comparar: "))
-    palabra_3 = str(input("Ingrese la tercera palabra que comparar: "))
-    operacion = str(input("Ingrese 1 para comparar alfabeticamente \t|\t Ingrese 2 para comparar por longitud: \n"))
+    lista = []
+    lista.append(str(input("Ingrese la primera palabra que comparar: ")))
+    lista.append(str(input("Ingrese la segunda palabra que comparar: ")))
+    lista.append(str(input("Ingrese la tercera palabra que comparar: ")))
+    operacion = str(input("Ingrese la operacion a realizar: "))
 
     if operacion == "1":
-      if palabra_3 < palabra_1 > palabra_2:
-        if palabra_2 > palabra_3:
-          print("En orden alfabetico estan:", palabra_1, palabra_2, palabra_3)
-        else:
-          print("En orden alfabetico estan:", palabra_1, palabra_3, palabra_2)
-      elif palabra_1 < palabra_2 > palabra_3:
-        if palabra_1 > palabra_3:
-          print("En orden alfabetico estan:", palabra_2, palabra_1, palabra_3)
-        else:
-          print("En orden alfabetico estan:", palabra_2, palabra_3, palabra_1)
-      elif palabra_1 > palabra_2:
-        print("En orden alfabetico estan:", palabra_3, palabra_1, palabra_2)
-      else:
-        print("En orden alfabetico estan:", palabra_3, palabra_2, palabra_1)
+      lista_comparada = []
+      lista_backup = lista
 
-    elif operacion == "2":
-      if len(palabra_3) < len(palabra_1) > len(palabra_2):
-        if len(palabra_2) > len(palabra_3):
-          print("Por cantidad de letras estan:", palabra_1, palabra_2, palabra_3)
-        else:
-          print("Por cantidad de letras estan:", palabra_1, palabra_3, palabra_2)
-      elif len(palabra_1) < len(palabra_2) > len(palabra_3):
-        if len(palabra_1) > len(palabra_3):
-          print("Por cantidad de letras estan:", palabra_2, palabra_1, palabra_3)
-        else:
-          print("Por cantidad de letras estan:", palabra_2, palabra_3, palabra_1)
-      elif len(palabra_1) > len(palabra_2):
-        print("En orden alfabetico estan:", palabra_3, palabra_1, palabra_2)
-      else:
-        print("En orden alfabetico estan:", palabra_3, palabra_2, palabra_1)
+      for palabra in range(len(lista)):
+        palabra_mayor = ""
+        for palabra2 in lista_backup:
+          if palabra2 > palabra_mayor:
+            palabra_mayor = palabra2
+        lista_comparada.append(palabra_mayor)
+        lista_backup.remove(palabra_mayor)
+
+      print("En orden alfabetico aparecen:")
+      for palabra in lista_comparada:
+        print(palabra)
     
-    else: 
-      print("La operacion introducida es desconocida, por favor empieze de nuevo")
-      ej4()
+    elif operacion == "2":
+      lista_comparada = []
+      lista_backup = lista
 
-             
+      for palabra in range(len(lista)):
+        palabra_mayor = ""
+
+        for palabra2 in lista_backup:
+
+          if len(palabra2) > len(palabra_mayor):
+            palabra_mayor = palabra2
+        lista_comparada.append(palabra_mayor)
+        lista_backup.remove(palabra_mayor)
+
+      print("En orden alfabetico aparecen:")
+      for palabra in lista_comparada:
+        print(palabra)
+
+    else:
+      print("La operacion ingresada es desconocida, por favor empieze de vuelta")
+      ej4()
+   
 def ej5():
     # Ejercicios de práctica con números
        
@@ -175,6 +184,7 @@ def ej5():
     temperatura_maxima = -999
     temperatura_minima = 999    
     temperatura_promedio = 0
+
     for temperatura in lista:
       temperatura_promedio = temperatura_promedio + temperatura
       if temperatura > temperatura_maxima:
@@ -193,4 +203,4 @@ if __name__ == '__main__':
     #ej2()
     #ej3()
     #ej4()
-    ej5()
+    #ej5()
